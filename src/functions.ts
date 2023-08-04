@@ -28,8 +28,13 @@
  */
 
 function yelling(words: string[]): string[] {
-  // Replace the code below with your own code
-  return []
+  // const upper = words.map(function (word) {
+  //   const newWords = word.toUpperCase()
+
+  //   return newWords
+  // }) 
+
+  return words.map( word => word.toUpperCase() )
 }
 
 /**
@@ -43,8 +48,8 @@ function yelling(words: string[]): string[] {
  */
 
 function doubleTrouble(numbers: number[]): number[] {
-  // Replace the code below with your own code
-  return []
+  
+  return numbers.map( number => number * 2 )
 }
 
 /*
@@ -57,8 +62,13 @@ function doubleTrouble(numbers: number[]): number[] {
  */
 
 function stringyIndexes(strings: string[]): string[] {
-  // Replace the code below with your own code
-  return []
+  const newStrings = strings.map( function(strings, index) {
+      const newMessage =(`${strings} is at index ${index}`)
+
+      return newMessage
+  })
+  
+  return newStrings
 }
 
 /*
@@ -70,8 +80,15 @@ function stringyIndexes(strings: string[]): string[] {
  */
 
 function onlyTheEvenSurvive(numbers: number[]): number[] {
-  // Replace the code below with your own code
-  return []
+  const newArray: number[] = []
+
+  const newStrings = numbers.map( function( number ) {
+      if( number % 2 === 0 ){
+        newArray.push(number)
+      }
+  })
+
+  return newArray
 }
 
 /*
@@ -83,8 +100,15 @@ function onlyTheEvenSurvive(numbers: number[]): number[] {
  */
 
 function onlyTheEvenIndexedSurvive(numbers: number[]): number[] {
-  // Replace the code below with your own code
-  return []
+  const newArray: number[] = []
+
+  const newStrings = numbers.map( function( number, index  ) {
+      if( index % 2 === 0 ){
+        newArray.push(number)
+      }
+  })
+
+  return newArray
 }
 
 /*
@@ -110,8 +134,9 @@ type Movie = {
   score: number
 }
 function bestMoviesOfTheYear(movieObjectArray: Movie[], year: number): string[] {
-  // Replace the code below with your own code
-  return []
+  let movieNames = movieObjectArray.filter(movie => movie.year === year && movie.score > 90)
+
+  return movieNames.map(movie => movie.name)
 }
 
 /*
@@ -124,8 +149,11 @@ function bestMoviesOfTheYear(movieObjectArray: Movie[], year: number): string[] 
  */
 
 function everyoneIsOdd(numbers: number[]): boolean {
-  // Replace the code below with your own code
-  return false
+  function isOdd(value: number): boolean {
+    return value % 2 === 1 
+  }
+  
+  return numbers.every(isOdd)
 }
 
 /*
@@ -139,7 +167,8 @@ function everyoneIsOdd(numbers: number[]): boolean {
 
 function findTheNeedle(strings: string[]): string {
   // Replace the code below with your own code
-  return ''
+
+  return strings.find(word => word.includes('needle')) || ''
 }
 
 /*
@@ -153,7 +182,7 @@ function findTheNeedle(strings: string[]): string {
 
 function findTheNeedleIndex(strings: string[]): number {
   // Replace the code below with your own code
-  return 42
+  return strings.findIndex(word => word.includes('needle'))
 }
 
 /*
@@ -167,7 +196,11 @@ function findTheNeedleIndex(strings: string[]): number {
 
 function someoneToLove(strings: string[]): boolean {
   // Replace the code below with your own code
-  return false
+  function isFourLetters(fourLetters: string): boolean {
+    return fourLetters.length === 4
+  }
+
+  return strings.some(isFourLetters)
 }
 
 /*
@@ -205,8 +238,14 @@ function someoneToLove(strings: string[]): boolean {
 
 type Hobbies = Record<string, { title: string; description: string }>
 function objectKeys(objectOfHobbies: Hobbies): string[] {
-  // Replace the code below with your own code
-  return []
+  const keys = Object.keys(objectOfHobbies)
+
+  const answer = keys.map(key => {
+    const hobby = objectOfHobbies[key]
+    return `${key} - ${hobby.title}`
+  })
+
+  return answer
 }
 
 /**
